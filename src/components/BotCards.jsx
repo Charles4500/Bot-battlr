@@ -1,5 +1,15 @@
 import React from 'react'
-import { SimpleGrid,Card,CardHeader,Text,Button,CardBody,Heading,CardFooter } from '@chakra-ui/react';
+import { SimpleGrid,Card,CardHeader,Text,Button,CardBody,CardFooter, Img } from '@chakra-ui/react';
+
+const botTypeClasses = {
+  Assault: "icon military",
+  Defender: "icon shield",
+  Support: "icon plus circle",
+  Medic: "icon ambulance",
+  Witch: "icon magic",
+  Captain: "icon star",
+};
+
 function BotCards({bot,clickEvent,deleteBot}) {
   return (
     <div>
@@ -10,38 +20,25 @@ function BotCards({bot,clickEvent,deleteBot}) {
   rounded='lg'
   color='gray.400'>
   <Card key={bot.id} onClick={() =>clickEvent(bot)} > 
-    <CardHeader>
-      <Heading size='md'> Customer dashboard</Heading>
-    </CardHeader>
+   
     <CardBody>
-      <Text>View a summary of all your customers over the last month.</Text>
-    </CardBody>
+    <Img alt='Oh no!'
+src={bot.avatar_url}  />
+  </CardBody>
+  <CardHeader>
+     {bot.name}
+     <i className={botTypeClasses[bot.bot_class]} />
+    </CardHeader>
     <CardFooter>
-      <Button>View here</Button>
+      <Button
+         onClick={(event) => {
+          event.stopPropagation();
+          deleteBot(bot);
+        }}
+      >X</Button>
     </CardFooter>
   </Card>
-  <Card>
-    <CardHeader>
-      <Heading size='md'> Customer dashboard</Heading>
-    </CardHeader>
-    <CardBody>
-      <Text>View a summary of all your customers over the last month.</Text>
-    </CardBody>
-    <CardFooter>
-      <Button>View here</Button>
-    </CardFooter>
-  </Card>
-  <Card>
-    <CardHeader>
-      <Heading size='md'> Customer dashboard</Heading>
-    </CardHeader>
-    <CardBody>
-      <Text>View a summary of all your customers over the last month.</Text>
-    </CardBody>
-    <CardFooter>
-      <Button>View here</Button>
-    </CardFooter>
-  </Card>
+ 
 </SimpleGrid>
     </div>
   )
