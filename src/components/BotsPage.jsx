@@ -7,6 +7,8 @@ import YourBotArmy from "./YourBotArmy";
 function BotsPage() {
   const [bots, setBots] = useState([]);
   function fetchData() {
+    //link to the db.json
+    
     return fetch("http://localhost:3000/bots")
       .then((resp) => resp.json())
       .then((data) => {
