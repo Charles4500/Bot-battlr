@@ -7,7 +7,7 @@ import YourBotArmy from "./YourBotArmy";
 function BotsPage() {
   const [bots, setBots] = useState([]);
   function fetchData() {
-    return fetch("https://my-json-server.typicode.com/Charles4500/Bot-battlr/bots")
+    return fetch("http://localhost:3000/bots")
       .then((resp) => resp.json())
       .then((data) => {
         setBots(data);
