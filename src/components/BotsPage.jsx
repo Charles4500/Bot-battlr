@@ -8,6 +8,7 @@ function BotsPage() {
   const [bots, setBots] = useState([]);
  
   //run fetch whenever the page loads
+  //Function to fetch data
   useEffect(() => {
     fetch(`http://localhost:3000/bots`)
       .then((resp) => resp.json())
