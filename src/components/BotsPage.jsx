@@ -10,7 +10,7 @@ function BotsPage() {
   //run fetch whenever the page loads
   //Function to fetch data
   useEffect(() => {
-    fetch("http://localhost:3000/bots")
+    fetch("https://my-json-server.typicode.com/Charles4500/Bot-battlr/bots")
       .then((resp) => resp.json())
       .then((bots) => {
         setBots(bots);
