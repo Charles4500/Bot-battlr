@@ -10,12 +10,13 @@ function BotsPage() {
   //run fetch whenever the page loads
   //Function to fetch data
   useEffect(() => {
-    fetch(`http://localhost:3000/bots`)
+    fetch("http://localhost:3000/bots")
       .then((resp) => resp.json())
       .then((bots) => {
         setBots(bots);
       });
   }, []);
+  
   function enlistBot(bot) {
     setBots(bots.map((b) => (b.id === bot.id ? { ...b, army: true } : b)));
   }
